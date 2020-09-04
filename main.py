@@ -8,7 +8,7 @@ print(__author__)
 
 def menu():
     os.system('cls')
-    print("Choose on option for Database Management")
+    print("Choose one option for Database Management")
     print("\t1 - Insert or create new user into Data Base")
     print("\t2 - Show Data from table")
     print("\t3 - Update User data")
