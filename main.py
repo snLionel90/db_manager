@@ -55,8 +55,14 @@ while True:
 
     elif opcionmenu == "3":
         print("Update an user data")
+        con3  = pymysql.connect(host="localhost", user="root", passwd="", db="my_python")
+        myCursor3 = con3.cursor()
+        sql3 = ('UPDATE userData SET name = %s WHERE name = %s')
+        name = input("place a new name")
+        myCursor3.execute(sql3, (name))
         input("data updated.., Press any Key to continue")
-        #espacio reservado para la modificacion de datos
+        con3.commit()
+        con3.close()
 
 
     elif opcionmenu == "9":
