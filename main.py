@@ -12,7 +12,7 @@ def menu():
     print("\t1 - Insert or create new user into Data Base")
     print("\t2 - Show Data from table")
     print("\t3 - Update User data")
-    #print ("\t4 - Delete user data")
+    print ("\t4 - Delete user data")
     print("\t9 - Exit")
 
 while True:
@@ -55,14 +55,25 @@ while True:
 
     elif opcionmenu == "3":
         print("Update an user data")
-        con3  = pymysql.connect(host="localhost", user="root", passwd="", db="my_python")
+        con3= pymysql.connect(host="localhost", user="root", passwd="", db="my_python")
         myCursor3 = con3.cursor()
-        sql3 = ('UPDATE userData SET name = %s WHERE name = %s')
+        sql3 = 'UPDATE userData SET name = %s WHERE name = %s'
         name = input("place a new name")
         myCursor3.execute(sql3, (name))
         input("data updated.., Press any Key to continue")
         con3.commit()
         con3.close()
+
+    elif opcionmenu == '4':
+        print("delete an user data")
+        con4 = pymysql.connect(host="localhost",user="root", passwd="", db="my_python")
+        myCursor4 = con4.cursor()
+        sql4=  'DELETE FROM userData WHERE id= %s'
+        id = int(input("selet data for delete: "))
+        myCursor4.execute(sql4,(id))
+        input("data deleted.., press any key to continue")
+        con4.commit()
+        con4.close()
 
 
     elif opcionmenu == "9":
